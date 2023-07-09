@@ -882,8 +882,15 @@ const zip3digit = [
   '998',
 ]
 
+function toNormalNumber(str) {
+  str = str.replace(/\-/g, '').trim()
+  return str.replace(/[０-９]/g, function (s) {
+    return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
+  })
+}
+
 search.addEventListener('click', () => {
-  const postcode = zip.value.replace(/\-/g, '').trim()
+  const postcode = toNormalNumber(zip.value)
   const csvfile = zip3digit.includes(postcode.slice(0, 3))
     ? postcode.slice(0, 3)
     : postcode.slice(0, 5)
