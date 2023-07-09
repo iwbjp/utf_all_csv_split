@@ -21,8 +21,10 @@
 </head>
 <body>
 <h1>郵便番号を検索して住所を表示するサンプル</h1>
-<input type="text" value="1700012" id="zip" inputmode="numeric">
-<button id="search">郵便番号検索</button>
+<form onsubmit="event.preventDefault();">
+  <input type="text" value="1700012" id="zip" inputmode="numeric">
+  <button id="search">郵便番号検索</button>
+</form>
 <div id="error"></div>
 <hr>
 <input type="text" id="kana" class="w100">
